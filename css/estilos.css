@@ -1,0 +1,150 @@
+.bg-celeste-pastel {
+    background-color: #b3e5fc; /* Fondo celeste pastel */
+}
+
+html, body {
+    height: 100%; /* Asegura que el cuerpo ocupe toda la altura de la ventana */
+    margin: 0; /* Elimina los márgenes predeterminados */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1; /* Hace que el main ocupe el espacio disponible restante */
+}
+
+footer {
+    margin-top: auto; /* Empuja el footer hacia el final */
+}
+
+.contenedor-cuadrados {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    grid-template-rows: repeat(2, 1fr);    /* 2 filas */
+    gap: 10px;                            /* Espacio entre los cuadrados */
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+}
+
+.cuadro {
+    width: 100px;
+    height: 100px;
+    perspective: 1000px; /* Esto permite el efecto de volteo */
+    cursor: pointer;
+}
+
+.cuadro .frente, .cuadro .dorso {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden; /* Oculta la parte de atrás cuando se voltea */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+    border-radius: 8px;
+}
+
+.cuadro .frente {
+    background-color: #a8e6cf;
+}
+
+.cuadro .dorso {
+    background-color: #fff;
+    transform: rotateY(180deg); /* La parte de atrás comienza rotada */
+}
+
+.cuadro.volteado .frente {
+    transform: rotateY(180deg); /* Voltea la parte frontal */
+}
+
+.cuadro.volteado .dorso {
+    transform: rotateY(0deg); /* Muestra la parte trasera */
+}
+
+.cuadro img {
+    max-width: 80%; /* Ajusta la imagen al tamaño del cuadrado */
+    max-height: 80%;
+}
+
+.cuadrado:hover {
+    transform: scale(1.1);  /* Efecto de ampliación al pasar el mouse */
+}
+
+.separadora {
+    border: 0;
+    border-top: 2px solid #007bff;  /* Color y grosor de la línea */
+    margin: 20px 0;  /* Espacio encima y debajo de la línea */
+}
+
+.contenedor-rectangulo {
+    display: flex;
+    justify-content: center; /* Centra el rectángulo horizontalmente */
+    align-items: center;     /* Centra el rectángulo verticalmente */
+}
+
+/* Estilo del rectángulo */
+.rectangulo {
+    width: 400px;               /* Ancho del rectángulo */
+    height: 200px;              /* Altura del rectángulo */
+    background-color: #a8e6cf;  /* Color verde pastel */
+    border-radius: 8px;         /* Bordes redondeados */
+    margin: 20px;               /* Márgenes alrededor */
+    display: flex;              /* Usamos flexbox */
+    justify-content: space-around; /* Espaciado entre botones */
+    align-items: center;        /* Centrado vertical */
+    position: relative;         /* Para posicionamiento relativo */
+}
+
+#botonNo {
+    position: relative; /* Relativo al contenedor */
+    transition: transform 0.2s ease; /* Animación suave para el movimiento */
+}
+
+#contenedorCorazon {
+    display: flex;
+    flex-direction: column;  /* Los corazones estarán en una columna */
+    align-items: center;  /* Centra los corazones horizontalmente */
+    position: relative;  /* Esto permite que los corazones se posicionen en relación al contenedor */
+    margin-top: 20px;
+}
+
+.corazon {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background-color: red;
+    transform: rotate(45deg); /* Rotamos el contenedor */
+    margin: 50px;
+    display: inline-block;
+    transform: rotate(-45deg);
+    z-index: 1; /* Todos los corazones tienen el mismo nivel de apilamiento por defecto */
+}
+
+.corazon::before,
+.corazon::after {
+    content: '';
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.corazon::before {
+    left: 0;
+    top: -50px;  /* Subimos el círculo superior */
+}
+
+.corazon::after {
+    left: 50px;
+    top: 0;  /* Movemos el círculo inferior */
+}
+
+
+
+

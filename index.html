@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Sencillo</title>
+    <!-- Bootstrap CSS -->
+    <link rel="icon" type="image" href="images/icono.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header class="bg-celeste-pastel text-primary text-center py-3">
+        <h1>Regalito Para Usted :3</h1>
+    </header>
+    
+    <main class="container my-3">
+        <div class="d-flex justify-content-center mt-4">
+            <button type="button" class="btn btn-success" id="dibujarCorazon">Presioname!!</button>
+        </div>
+
+        <!-- Contenedor para el corazón -->
+        <div id="contenedorCorazon" class="d-flex flex-wrap justify-content-center mt-4"></div>
+
+        <hr class="separadora">
+
+        <div class="text-center">
+            <p><strong>¿Le gustaría volver a salir conmigo? :'3</strong></p>
+        </div>
+
+        <div class="contenedor-rectangulo">
+
+            <div class="rectangulo d-flex justify-content-around align-items-center">
+                <button type="button" id="botonSi" class="btn btn-success">SI :3</button>
+                <button type="button" id="botonNo" class="btn btn-secondary">No :,v</button>
+            </div>
+        </div>
+
+        <hr class="separadora">
+
+        <div class="row">
+            <div class="col-md-6">
+                <h2>UN POEMITA:</h2>
+                <p>Del Cielo Cayeron Gomitas..</p>
+                <p>Con Forma de Ositos y Leones..</p>
+                <p>Para La Niña Mas Bonita Del Mundo..</p>
+                <p>Que Actualmente Se Encuentra En Chone..</p>
+                <br>
+                <p>¨Me refiero a usted pues >:3 ... xd supongo esta en Chone no? sajakjsda¨</p>
+            </div>
+
+            <div class="col-md-6">
+                <br>
+                <br>
+                <br>
+                <br>
+                <h2>OTRO POEMITA:</h2>
+                <p>La existencia de una sonrisa en tu carita</p>
+                <p>Puede llenar de colores un mundo gris</p>
+                <p>Y Cada Sonrisa que le regala al mundo</p>
+                <p>Se Me Hace Mas Bonita Que Ver One Piece</p>
+
+                <br>
+                <p>¨Le juro que los poemas los cree yo asjdkasjdancjcssdk me achicopalo xd¨</p>
+            </div>
+        </div>
+
+        <hr class="separadora">
+
+        <div class="text-center">
+            <p><strong>Ni se que quice hacer aqui asjdajksdkjas </strong></p>
+        </div>
+
+        <div id="contenedorCuadrados" class="contenedor-cuadrados">
+            <div class="cuadro" onclick="voltearCuadro(this)">
+                <div class="frente"></div>
+                <div class="dorso">
+                    <img src="images/ParaTi.jpg" alt="Imagen">
+                </div>
+            </div>
+            <div class="cuadro" onclick="voltearCuadro(this)">
+                <div class="frente"></div>
+                <div class="dorso">
+                    <img src="images/xd.jpg" alt="Imagen">
+                </div>
+            </div>
+            <div class="cuadro" onclick="voltearCuadro(this)">
+                <div class="frente"></div>
+                <div class="dorso">
+                    <img src="images/pin.jpg" alt="Imagen">
+                </div>
+            </div>
+            <div class="cuadro" onclick="voltearCuadro(this)">
+                <div class="frente"></div>
+                <div class="dorso">
+                    <img src="images/flores.jpg" alt="Imagen">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 - Lic. Julissa Selenia Manzaba Lucas</p>
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+
+        document.getElementById("botonNo").addEventListener("click", function () {
+            let randomOffset;
+        
+            // Obtener el desplazamiento actual del botón
+            const currentTransform = this.style.transform.match(/translateY\((-?\d+)px\)/);
+            const currentOffset = currentTransform ? parseInt(currentTransform[1]) : 0;
+        
+            // Asegurarse de que el nuevo desplazamiento sea diferente al actual
+            do {
+                randomOffset = 40; // Número entre 11 y 40
+                if (Math.random() < 0.5) {
+                    randomOffset = -randomOffset; // Convertir a negativo con 50% de probabilidad
+                }
+            } while (randomOffset === currentOffset);
+        
+            // Aplicar el nuevo desplazamiento
+            this.style.transform = `translateY(${randomOffset}px)`;
+        });
+
+        // Escuchar el evento de clic en el botón "Sí"
+        document.getElementById("botonSi").addEventListener("click", function () {
+            Swal.fire({
+                title: "SABIA QUE ACEPTARIA :D",
+                text: "Ahora a usted le toca invitarme, osea cuando pueda. jejej AHHHHHHHHHHHHHH que wewencha",
+                imageUrl: "images/gatito.gif",
+                imageWidth: 200,
+                imageHeight: 200,
+                imageAlt: "Custom image",
+                confirmButtonText: "Entendido"
+            });
+        });
+
+        function voltearCuadro(elemento) {
+            elemento.classList.toggle('volteado');
+        }
+
+        let frases = ['Bella', 'Divertida', 'Agradable', 'Bonita', 'Increible', 'Atractiva', 'Dulce', 'Cautivante', 'Milele XDXD', 'Entretenida', ];
+        let id=0;
+
+        document.getElementById('dibujarCorazon').addEventListener('click', function () {
+            const contenedor = document.getElementById('contenedorCorazon');
+            
+            // Crear un elemento de corazón
+
+
+
+            const corazon = document.createElement('div'+id);
+            corazon.className = 'corazon';
+            
+            // Agregar el corazón al contenedor
+            contenedor.appendChild(corazon);
+            
+            // Crear un elemento de texto centrado
+            const texto = document.createElement('span'+id);
+
+            if(id>9){
+                contenedor.innerHTML = '';
+                texto.textContent = '¿tantos click:3?';
+                const boton = document.getElementById('dibujarCorazon');
+                boton.disabled = true;  // Desactiva el botón
+            }else{
+                texto.textContent = frases[id]; // Puedes cambiar esto por cualquier texto o emoji
+            }
+
+            texto.className = `texto-${id}`;  // Agregamos una clase única al texto
+
+            // Crear la clase CSS dinámica
+            // Crear la clase CSS dinámica
+            const style = document.createElement('style');
+            style.innerHTML = `
+                /* CSS para el texto dentro del contenedor */
+                #contenedorCorazon .texto-${id} {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-40%, -80%) rotate(45deg); /* Centra el texto y lo rota */
+                    font-size: 24px;
+                    color: white;
+                    font-weight: bold;
+                    pointer-events: none;
+                    z-index: 10; /* Asegura que el texto esté encima */
+                }
+
+                /* CSS para el corazón */
+                #contenedorCorazon #${id} {
+                    z-index: ${id}; /* Asegura que el corazón más nuevo tenga un z-index mayor y esté encima del anterior */
+                }
+            `;
+            document.head.appendChild(style);  // Añadir el estilo al <head>
+
+            // Agregar el texto dentro del corazón
+            corazon.appendChild(texto);
+        
+            // Agregar el corazón al contenedor
+            contenedor.prepend(corazon);
+
+            id++;
+        });
+    </script>
+
+</body>
+
+
+</html>
+
